@@ -1,0 +1,29 @@
+{
+  "name": "cstar",
+  "version": "0.0.0",
+  "description": "",
+  "main": "cstar.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mucbuc/cstar.git"
+  },
+  "author": "mark busenitz",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mucbuc/cstar/issues"
+  },
+  "homepage": "https://github.com/mucbuc/cstar#readme",
+  "dependencies": {
+    "filebase": "*"
+  },
+  "devDependencies": {
+    "tape" : "*",
+    "expector": "*"
+  }
+}
