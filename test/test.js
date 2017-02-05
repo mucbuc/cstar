@@ -20,11 +20,11 @@ test( 'compose gypi', t => {
 test( 'compose pri', t => {
 	let e = new Expector( t );
 
-	e.expect( 'done ');
+	e.expect( 'SOURCES = src/main.cpp\ninclude(targets.gypi)\n' );
 
 	cstar.makePRI( './def.json' )
-	.then( () => {
-		e.emit( 'done ' ).check();
+	.then( pri => {
+		e.emit( pri ).check();
 	});
 });
 

@@ -24,10 +24,18 @@ function makePRI( defPath, target ) {
   return new Promise( (resolve, reject) => {
     compose( defPath, target )
     .then( result => {
-      let pri = 'SOURCES = \\\n';
+      let pri = 'SOURCES =';
       for (let file in result.sources) {
-        pri += '\t' + result.sources[file] + '\\\n';
+        pri += ' ' + result.sources[file];
       }
+
+      if (result.hasOwnProperty('config')) {
+        pri += '\n';
+        for (let conf in result.config) {
+          pri += 'include(' + result.config[conf] + ')\n';
+        }
+      }
+
       resolve(pri);
     });
   });
