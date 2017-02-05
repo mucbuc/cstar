@@ -20,4 +20,32 @@ function makeGYP( defPath, target ) {
   });
 }
 
-module.exports = makeGYP;
+function makePRI( defPath, target ) { 
+  return new Promise( (resolve, reject) => {
+    compose( defPath, target )
+    .then( result => {
+      let pri = 'SOURCES = \\\n';
+      for (let file in result.sources) {
+        pri += '\t' + result.sources[file] + '\\\n';
+      }
+      resolve(pri);
+    });
+  });
+}
+
+function makeCMake( defPath, target ) {
+  return new Promise( (resolve, reject) => {
+    resolve( {} );
+  });
+  // config => include(file)      //https://cmake.org/cmake/help/v3.0/command/include.html
+  
+  // source => add_executable( TARGET, source)
+}
+
+
+
+module.exports = { 
+  makeGYP: makeGYP,
+  makePRI: makePRI, 
+  makeCMake: makeCMake
+};
