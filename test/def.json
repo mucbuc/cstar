@@ -1,4 +1,8 @@
 {
 	"sources": [ "src/main.cpp" ],
-	"config": [ "targets.gypi" ]
+	"branches": {
+		"gyp": {
+			"config": [ "targets.gypi" ]
+		}
+	}
 }

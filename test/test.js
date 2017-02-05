@@ -11,7 +11,7 @@ test( 'compose', t => {
 
 	e.expect( { target_defaults:{ sources: ["src/main.cpp"]}, includes: ["targets.gypi"]} );
 
-	cstar( './def.json' )
+	cstar( './def.json', 'gyp' )
 	.then( gypi => {
 		e.emit( gypi ).check();
 	});

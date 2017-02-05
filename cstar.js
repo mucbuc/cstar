@@ -2,9 +2,9 @@
 'use strict';
 const compose = require( './node_modules/filebase/compose' )
 
-function makeGYP( defPath ) {
+function makeGYP( defPath, target ) {
   return new Promise( (resolve, reject) => {
-    compose( defPath )
+    compose( defPath, target )
     .then( result => {
       let gypi = { target_defaults: {} };
 
