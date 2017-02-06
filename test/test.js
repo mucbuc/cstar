@@ -5,6 +5,7 @@
 const cstar = require( '../cstar' )
   , Expector = require( 'expector' ).SeqExpector
   , test = require( 'tape' )
+  , fs = require( 'fs' );
 
 test( 'compose gypi', t => {
 	let e = new Expector( t );
@@ -36,5 +37,16 @@ test( 'compose cmake', t => {
 	cstar.makeCMake( './def_cmake.json' )
 	.then( () => {
 		e.emit( 'done ' ).check();
+	});
+});
+
+test.only( 'make project', t => { 
+	let e = new Expector( t ); 
+
+	e.expect( 'done' );
+
+	cstar.makeGYP( './def_gyp.json' )
+	.then( (gyp) => {
+		fs.writeFile( './test.gypi', JSON.stringify( gyp, null, 2 ) );
 	});
 });
