@@ -3,6 +3,9 @@
 	"branches": {
 		"gyp": {
 			"config": [ "targets.gypi" ]
+		},
+		"pri": {
+			"config": [ "other.pri" ]
 		}
 	}
 }

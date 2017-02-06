@@ -1,0 +1,4 @@
+{
+	"sources": [ "src/main.cpp" ],
+	"config": [ "targets.gypi" ]
+}
