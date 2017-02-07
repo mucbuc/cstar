@@ -43,7 +43,15 @@ function makePRI( defPath, target ) {
 
 function makeCMake( defPath, target ) {
   return new Promise( (resolve, reject) => {
-    resolve( {} );
+    compose( defPath, target )
+    .then( result => {
+      let cmake = 'add_executable(host ' + result.sources.join( ' ' ) + ')';
+
+
+      // result.config.forEach( ... )
+      cmake += 'include(other.txt)';
+      resolve( cmake );
+    });
   });
   // config => include(file)      //https://cmake.org/cmake/help/v3.0/command/include.html
   

@@ -78,7 +78,7 @@ test( 'make PRO project', t => {
 test.only( 'make CMake project', t => { 
 	let e = new Expector( t ); 
 
-	e.expect( '' );
+	e.expect( "-- Configuring done\n-- Generating done\n-- Build files have been written to: /Users/markymark/work/cstar/test\n" );
 
 	cstar.makeCMake( './def_cmake.json' )
 	.then( (cmake) => {
