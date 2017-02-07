@@ -41,16 +41,34 @@ test( 'compose cmake', t => {
 	});
 });
 
-test( 'make project', t => { 
+test( 'make gyp project', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
 
 	cstar.makeGYP( './def_gyp.json' )
 	.then( (gyp) => {
-		fs.writeFile( './test.gypi', JSON.stringify( gyp, null, 2 ), (err) => {
+		fs.writeFile( './test.gypi', gyp, (err) => {
 			if (err) throw err;
 			cp.exec( 'gyp --depth=0 host.gyp', (err, stdout, stderr) => {
+				if (err) throw err;
+				e.emit(stdout).check();
+			});
+		});
+	});
+});
+
+
+test.only( 'make PRO project', t => { 
+	let e = new Expector( t ); 
+
+	e.expect( '' );
+
+	cstar.makePRI( './def_pri.json' )
+	.then( (pro) => {
+		fs.writeFile( './test.pro', pro, (err) => {
+			if (err) throw err;
+			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode host.pro', (err, stdout, stderr) => {
 				if (err) throw err;
 				e.emit(stdout).check();
 			});

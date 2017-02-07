@@ -1,2 +1,4 @@
 node_modules/
 host.xcodeproj/
+test/test.gypi
+test/test.pro
