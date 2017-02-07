@@ -49,7 +49,8 @@ function makeCMake( defPath, target ) {
 
 
       // result.config.forEach( ... )
-      cmake += 'include(other.txt)';
+      cmake += '\ninclude(other.txt)';
+      cmake += '\n';
       resolve( cmake );
     });
   });

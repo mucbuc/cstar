@@ -82,14 +82,13 @@ test.only( 'make CMake project', t => {
 
 	cstar.makeCMake( './def_cmake.json' )
 	.then( (cmake) => {
-		console.log( cmake );
-		//fs.writeFile( './test.txt', cmake, (err) => {
-			//if (err) throw err;
+		fs.writeFile( './test.txt', cmake, (err) => {
+			if (err) throw err;
 			cp.exec( 'cmake . -G "Xcode"', (err, stdout, stderr) => {
 				if (err) throw err;
 				e.emit(stdout).check();
 			});
-		//});
+		});
 	});
 });
 
