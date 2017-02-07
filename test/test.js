@@ -58,7 +58,6 @@ test( 'make gyp project', t => {
 	});
 });
 
-
 test( 'make PRO project', t => { 
 	let e = new Expector( t ); 
 
@@ -75,3 +74,25 @@ test( 'make PRO project', t => {
 		});
 	});
 });
+
+test.only( 'make CMake project', t => { 
+	let e = new Expector( t ); 
+
+	e.expect( '' );
+
+	cstar.makeCMake( './def_cmake.json' )
+	.then( (cmake) => {
+		console.log( cmake );
+		//fs.writeFile( './test.txt', cmake, (err) => {
+			//if (err) throw err;
+			cp.exec( 'cmake . -G "Xcode"', (err, stdout, stderr) => {
+				if (err) throw err;
+				e.emit(stdout).check();
+			});
+		//});
+	});
+});
+
+
+
+

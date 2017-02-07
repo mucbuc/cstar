@@ -1,2 +1,0 @@
-project(test)
-add_executable(test src/main.cpp)
