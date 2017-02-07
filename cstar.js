@@ -15,7 +15,7 @@ function makeGYP( defPath, target ) {
       if (result.hasOwnProperty('sources')) {
         gypi.target_defaults.sources = Array.isArray(result.sources) ? result.sources : [result.sources];
       }
-      resolve( gypi );
+      resolve( JSON.stringify(gypi, null, 2) );
     });
   });
 }

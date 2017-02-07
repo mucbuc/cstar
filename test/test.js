@@ -15,7 +15,7 @@ test( 'compose gypi', t => {
 
 	cstar.makeGYP( './def_gyp.json' )
 	.then( gypi => {
-		e.emit( gypi ).check();
+		e.emit( JSON.parse(gypi) ).check();
 	});
 });
 
@@ -59,7 +59,7 @@ test( 'make gyp project', t => {
 });
 
 
-test.only( 'make PRO project', t => { 
+test( 'make PRO project', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
