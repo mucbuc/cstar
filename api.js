@@ -1,8 +1,12 @@
 
 'use strict';
-const compose = require( './node_modules/filebase/compose' )
+const assert = require( 'assert' )
+  , compose = require( './node_modules/filebase/compose' )
+
+assert( typeof compose !== 'undefined' );
 
 function makeGYP( defPath, target ) {
+
   return new Promise( (resolve, reject) => {
     compose( defPath, target )
     .then( result => {
@@ -16,7 +20,8 @@ function makeGYP( defPath, target ) {
         gypi.target_defaults.sources = Array.isArray(result.sources) ? result.sources : [result.sources];
       }
       resolve( JSON.stringify(gypi, null, 2) );
-    });
+    })
+    .catch( reject );
   });
 }
 
