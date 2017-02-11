@@ -2,7 +2,7 @@
 
 'use strict';
 
-const cstar = require( '../cstar' )
+const cstar = require( '../api' )
   , Expector = require( 'expector' ).SeqExpector
   , test = require( 'tape' )
   , fs = require( 'fs' )
