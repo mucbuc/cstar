@@ -1,7 +1,7 @@
-
-'use strict';
 const assert = require( 'assert' )
   , compose = require( './node_modules/filebase/compose' )
+
+'use strict';
 
 assert( typeof compose !== 'undefined' );
 
@@ -29,7 +29,7 @@ function makePRI( defPath, target ) {
   return new Promise( (resolve, reject) => {
     compose( defPath, target )
     .then( result => {
-      let pri = 'SOURCES =';
+      let pri = 'SOURCES +=';
       for (let file in result.sources) {
         pri += ' ' + result.sources[file];
       }
@@ -52,21 +52,18 @@ function makeCMake( defPath, target ) {
     .then( result => {
       let cmake = 'add_executable(host ' + result.sources.join( ' ' ) + ')';
 
-
-      // result.config.forEach( ... )
-      cmake += '\ninclude(other.txt)';
+      if (result.hasOwnProperty('config')) {
+        for (let conf in result.config) {
+          cmake += '\ninclude(' + conf ')';
+        }
+      }
       cmake += '\n';
       resolve( cmake );
     });
   });
-  // config => include(file)      //https://cmake.org/cmake/help/v3.0/command/include.html
-  
-  // source => add_executable( TARGET, source)
 }
 
-
-
-module.exports = { 
+module.exports = {
   makeGYP: makeGYP,
   makePRI: makePRI, 
   makeCMake: makeCMake
