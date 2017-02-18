@@ -4,7 +4,8 @@
 
 const program = require( 'commander' )
   , assert = require( 'assert' )
-  , list = require( './node_modules/filebase/list' );
+  , list = require( './node_modules/filebase/list' )
+  , compose = require( './node_modules/filebase/compose' );
 
 assert( typeof program !== 'undefined' );
 
@@ -24,7 +25,10 @@ if (program.branches) {
 	});
 }
 else if (program.sources) {
-	console.log( 'sources' );
+	compose(process.argv[3])
+	.then( result => {
+		console.log( result.sources );
+	});
 }
 else if (program.config) {
 	console.log( 'config' );
