@@ -5,37 +5,38 @@
 const program = require( 'commander' )
   , assert = require( 'assert' )
   , list = require( './node_modules/filebase/list' )
-  , compose = require( './node_modules/filebase/compose' );
+  , compose = require( './node_modules/filebase/compose' )
+  , cstar = require( './api' );
 
 assert( typeof program !== 'undefined' );
 
 program
 	.version( '0.0.0' )
-	.option( '-s, --sources [branch]', 'list sources for branch [null]' )
-	.option( '-c, --config [branch]', 'list config for branch [null]' )
 	.option( '-b, --branches', 'list branches' )
-	.option( '-o, --only [type]', 'only generate [gyp|cmake|qmake]' );
+	.option( '-g, --gyp [branch]', 'generate gyp file' )
+	.option( '-c, --cmake [branch]', 'generate cmake file' )
+	.option( '-q, --qmake [branch]', 'generate qmake file'); 
 
 program.parse(process.argv);
 
+const defPath = process.argv[3];
+
 if (program.branches) {
-	list(process.argv[3])
-	.then( result => {
-		console.log( result );
-	});
+	list(defPath).then(print);
 }
-else if (program.sources) {
-	compose(process.argv[3])
-	.then( result => {
-		console.log( result.sources );
-	});
+else if (program.gyp) {
+	cstar.makeGYP(defPath).then(print);
 }
-else if (program.config) {
-	console.log( 'config' );
+else if (program.cmake) {
+	cstar.makeCMake(defPath).then(print);
 }
-else if (program.only) {
-	console.log( 'only' );
+else if (program.qmake) {
+	cstar.makePRI(defPath).then(print);
 }
 else {
-	console.log( 'else' );
+	compose(defPath).then(print);
+}
+
+function print(result) {
+	console.log( result );
 }
