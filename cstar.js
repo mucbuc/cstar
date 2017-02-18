@@ -3,19 +3,27 @@
 'use strict';
 
 const program = require( 'commander' )
-  , assert = require( 'assert' );
+  , assert = require( 'assert' )
+  , list = require( './node_modules/filebase/list' );
 
 assert( typeof program !== 'undefined' );
 
 program
 	.version( '0.0.0' )
-	.option( '-s, --sources [branch]', 'list sources for branch [null]', null )
-	.option( '-c, --config [branch]', 'list config for branch [null]', null )
+	.option( '-s, --sources [branch]', 'list sources for branch [null]' )
+	.option( '-c, --config [branch]', 'list config for branch [null]' )
+	.option( '-b, --branches', 'list branches' )
 	.option( '-o, --only [type]', 'only generate [gyp|cmake|qmake]' );
 
 program.parse(process.argv);
 
-if (program.sources) {
+if (program.branches) {
+	list(process.argv[3])
+	.then( result => {
+		console.log( result );
+	});
+}
+else if (program.sources) {
 	console.log( 'sources' );
 }
 else if (program.config) {
