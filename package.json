@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "tape" : "*",
-    "expector": "*"
+    "expector": "*",
+    "commander": "*"
   }
 }

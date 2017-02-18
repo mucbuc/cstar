@@ -2,6 +2,9 @@
 
 objective: make gyp, cmake, qmake include files from cstar def file
 
-def => gypi 
-def => cmake
-def => pri
+### cstar def file
+-sources
+-includes
+-branches
+-config
+
