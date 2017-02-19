@@ -19,7 +19,7 @@ program
 
 program.parse(process.argv);
 
-const defPath = process.argv[3];
+const defPath = program.args[0];
 
 if (program.branches) {
 	list(defPath).then(print);
