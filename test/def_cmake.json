@@ -1,4 +1,4 @@
 {
 	"sources": [ "src/main.cpp" ],
-	"config": [ "other.cmake" ]
+	"config": [ "other.txt" ]
 }

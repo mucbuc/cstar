@@ -1,7 +1,8 @@
-const assert = require( 'assert' )
-  , compose = require( './node_modules/filebase/compose' )
 
 'use strict';
+
+const assert = require( 'assert' )
+  , compose = require( './node_modules/filebase/compose' )
 
 assert( typeof compose !== 'undefined' );
 
@@ -31,11 +32,10 @@ function makePRI( defPath, target ) {
     .then( result => {
       let pri = 'SOURCES +=';
       for (let file in result.sources) {
-        pri += ' ' + result.sources[file];
+        pri += ' ' + result.sources[file] + '\n';
       }
 
       if (result.hasOwnProperty('config')) {
-        pri += '\n';
         for (let conf in result.config) {
           pri += 'include(' + result.config[conf] + ')\n';
         }
@@ -50,14 +50,13 @@ function makeCMake( defPath, target ) {
   return new Promise( (resolve, reject) => {
     compose( defPath, target )
     .then( result => {
-      let cmake = 'add_executable(host ' + result.sources.join( ' ' ) + ')';
+      let cmake = 'add_executable(host ' + result.sources.join( ' ' ) + ')\n';
 
       if (result.hasOwnProperty('config')) {
         for (let conf in result.config) {
-          cmake += '\ninclude(' + conf ')';
+          cmake += 'include(' + result.config[conf] + ')\n';
         }
       }
-      cmake += '\n';
       resolve( cmake );
     });
   });

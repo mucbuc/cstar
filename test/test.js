@@ -24,7 +24,7 @@ test( 'compose gypi', t => {
 test( 'compose pri', t => {
 	let e = new Expector( t );
 
-	e.expect( 'SOURCES = src/main.cpp\ninclude(other.pri)\n' );
+	e.expect( 'SOURCES += src/main.cpp\ninclude(other.pri)\n' );
 
 	cstar.makePRI( './def_pri.json' )
 	.then( pri => {
@@ -43,7 +43,7 @@ test( 'compose cmake', t => {
 	});
 });
 
-test( 'make gyp project', t => { 
+test( 'make gyp include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
@@ -60,7 +60,7 @@ test( 'make gyp project', t => {
 	});
 });
 
-test( 'make PRO project', t => { 
+test( 'make PRI include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
@@ -77,7 +77,7 @@ test( 'make PRO project', t => {
 	});
 });
 
-test( 'make CMake project', t => { 
+test( 'make CMake include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( "" );
