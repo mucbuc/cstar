@@ -1,10 +1,12 @@
 # cstar
+c++ source integratiion tool
 
-objective: make gyp, cmake, qmake include files from cstar def file
+cstar generates project include files for common formats ([gyp](https://chromium.googlesource.com/external/gyp/+/master/docs/UserDocumentation.md), [qmake](http://doc.qt.io/qt-4.8/qmake-manual.html), [cmake](https://cmake.org/)) from JSON project
+definition files
 
-### cstar def file
--sources
--includes
--branches
--config
+### definition file
+-sources  
+-includes  
+-branches  
+-config  
 
