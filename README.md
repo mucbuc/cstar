@@ -4,39 +4,51 @@ c++ source integration tool
 cstar generates project include files for common formats ([gyp](https://gyp.gsrc.io/index.md), [qmake](http://doc.qt.io/qt-4.8/qmake-manual.html), [cmake](https://cmake.org/)) from JSON project
 definition files
 
-##project definition file examples:
+##project definition
 
-####1.1 project with one source file
+#### 1 import
+
+cstar will recursively process imported definition files: 
 ```
 {
-	"sources": "src/main.cpp"
+	"import": [ "lib/def.json" ]
+}
+
+
+#### 2 references
+These properties will get flattened and relativized: 
+
+##### 2.1 reference source files
+Specify source files like this:
+
+```
+{
+	"sources": [ "src/main.cpp" ]
 }
 ```
 
-####1.2 project with branch
+##### 2.2 reference configuration files
+Specify configuration files like this: 
+```
+{
+	"config": [ "targets.gypi" ]
+}
+
+```
+
+#### 3 branches
+You can specialize for arbitrariy targets: 
 ```
 {
 	"branches": {
 		"win": {
-			"sources": "src/win.cpp"
+			"config": "lib/directX.gypi"
 		},
 		"mac": {
-			"sources": "src/mac.cpp"
+			"config": "lib/openGL.gypi"
 		}
 	}
 }
 ```
 
-####1.3 project with dependecy
-```
-{
-	"config": "targets.gypi"
-}
-```
-
-### definition file
--sources  
--includes  
--branches  
--config  
 

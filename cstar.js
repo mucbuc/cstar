@@ -15,7 +15,8 @@ program
 	.option( '-b, --branches', 'list branches' )
 	.option( '-g, --gyp [branch]', 'generate gyp file' )
 	.option( '-c, --cmake [branch]', 'generate cmake file' )
-	.option( '-q, --qmake [branch]', 'generate qmake file'); 
+	.option( '-q, --qmake [branch]', 'generate qmake file')
+	.option( '-e, --export [branch]', 'cstar file' );
 
 program.parse(process.argv);
 
@@ -34,7 +35,8 @@ else if (program.qmake) {
 	cstar.makePRI(defPath).then(print);
 }
 else {
-	compose(defPath).then(print);
+	console.log( program.export );
+	compose(defPath, program.export).then(print);
 }
 
 function print(result) {
