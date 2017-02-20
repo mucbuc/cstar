@@ -13,7 +13,7 @@ cstar will recursively process imported definition files:
 {
 	"import": [ "lib/def.json" ]
 }
-
+```
 
 #### 2 references
 These properties will get flattened and relativized: 
