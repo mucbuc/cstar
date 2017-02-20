@@ -6,21 +6,20 @@ definition files
 
 ##project definition
 
-#### 1 import
+#### 1 import  
+cstar will recursively process imported files. 
 
-cstar will recursively process imported definition files: 
+#### 1.1 import project definitions
 ```
 {
 	"import": [ "lib/def.json" ]
 }
 ```
 
-#### 2 references
-These properties will get flattened and relativized: 
+#### 2 reference files
+These properties will get flattened and relativized. Accepted types are arrays and strings.
 
 ##### 2.1 reference source files
-Specify source files like this:
-
 ```
 {
 	"sources": [ "src/main.cpp" ]
@@ -28,7 +27,6 @@ Specify source files like this:
 ```
 
 ##### 2.2 reference configuration files
-Specify configuration files like this: 
 ```
 {
 	"config": [ "targets.gypi" ]
@@ -37,7 +35,9 @@ Specify configuration files like this:
 ```
 
 #### 3 branches
-You can specialize for arbitrariy targets: 
+Branches will get trimmed according to an optional regular expression passed as argument to cstar
+
+##### 3.1 specify arbitrary targets
 ```
 {
 	"branches": {
