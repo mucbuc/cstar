@@ -9,7 +9,7 @@ definition files
 #### 1 import  
 cstar will recursively process imported files. 
 
-#### 1.1 import project definitions
+##### 1.1 import project definitions
 ```
 {
 	"import": [ "lib/def.json" ]
@@ -50,5 +50,7 @@ Branches will get trimmed according to an optional regular expression passed as 
 	}
 }
 ```
+
+[More Examples](examples.md)
 
 
