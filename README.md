@@ -6,7 +6,8 @@ cstar generates project include files for common build systems ([gyp](https://gy
 definition files
 
 
-[Project Definition Quick Guide](quickguide.md)   
-[Examples](examples.md)
+[Project Definition Guide](doc/guide.md)   
+[Examples](doc/examples.md)
+[Developer Guide](doc/dev.md)
 
 
