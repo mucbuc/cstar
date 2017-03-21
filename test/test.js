@@ -62,7 +62,7 @@ test( 'make gyp include', t => {
 });
 
 // need to get qmake on build server
-test.only( 'make PRI include', t => { 
+test( 'make PRI include', t => { 
 	
 	process.chdir( './template/cstar-template-pri/' );
 	
@@ -80,22 +80,29 @@ test.only( 'make PRI include', t => {
 	.catch( t.fail.bind( t ) );
 });
 
-// install cmake on build server
-test.skip( 'make CMake include', t => { 
-	let e = new Expector( t ); 
+test( 'make CMake include', t => { 
 
-	e.expect( "" );
+	process.chdir( './template/cstar-template-cmake/' );
 
-	cstar.makeCMake( './template/cstar-template-cmake/def.json' )
+	cstar.makeCMake( './def.json' )
 	.then( (cmake) => {
-		fs.writeFile( './template/cstar-template-cmake/test.txt', cmake, (err) => {
+		fs.writeFile( './test.txt', cmake, (err) => {
 			if (err) throw err;
-			cp.exec( 'cmake . -G "Xcode"', {cwd: './template/cstar-template-cmake' }, (err, stdout, stderr) => {
+			cp.exec( 'cmake .', (err, stdout, stderr) => {
 				if (err) throw err;
-				e.emit( "" ).check();
+
+				console.log( '******', stderr );
+
+				t.equal( stderr.length, 0 );
+				cp.exec( 'make', (err, stdout, stderr) => {
+					if (err) throw err;
+					t.equal( stderr.length, 0 );
+					t.end();
+				});
 			});
 		});
-	});
+	})
+	.catch( t.fail.bind( t ) );
 });
 
 
