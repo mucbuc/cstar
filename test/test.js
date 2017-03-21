@@ -44,9 +44,7 @@ test( 'compose cmake', t => {
 	});
 });
 
-
-// these test require executables 
-test( 'make gyp include', t => { 
+test.only( 'make gyp include', t => { 
 
 	process.chdir( path.join( __dirname, 'template/cstar-template-gyp/' ) );
 
@@ -54,10 +52,18 @@ test( 'make gyp include', t => {
 	.then( (gyp) => {
 		fs.writeFile( './test.gypi', gyp, (err) => {
 			if (err) throw err;
-			cp.exec( 'gyp --depth=. --build=Test ./host.gyp', (err, stdout, stderr) => {
+			cp.exec( 'gyp --depth=. ./host.gyp --format=make', (err, stdout, stderr) => {
 				if (err) throw err;
-				t.notEqual( stdout.indexOf( '** BUILD SUCCEEDED **' ), -1 );
-				t.end();
+				t.equal( stderr.length, 0 );
+				cp.exec( 'make test', (err, stdout, stderr) => {
+					
+					console.log( stderr );
+					console.log( stdout );
+
+					if (err) throw err;
+					t.equal( stderr.length, 0 );
+					t.end();
+				});
 			});
 		});
 	})
