@@ -48,7 +48,7 @@ test( 'make gyp include', t => {
 
 	e.expect( '' );
 
-	cstar.makeGYP( './def_gyp.json' )
+	cstar.makeGYP( './def.json' )
 	.then( (gyp) => {
 		fs.writeFile( './test.gypi', gyp, (err) => {
 			if (err) throw err;
