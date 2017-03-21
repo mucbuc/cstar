@@ -46,7 +46,7 @@ test( 'compose cmake', t => {
 
 test( 'make gyp include', t => { 
 
-	process.chdir( path.join( __dirname, 'template/cstar-template-gyp/' ) );
+	process.chdir( path.join( __dirname, 'cstar-template-gyp/' ) );
 
 	cstar.makeGYP( './def.json' )
 	.then( (gyp) => {
@@ -72,7 +72,7 @@ test( 'make gyp include', t => {
 
 test( 'make qmake include', t => { 
 	
-	process.chdir( path.join( __dirname, 'template/cstar-template-qmake/' ) );
+	process.chdir( path.join( __dirname, 'cstar-template-qmake/' ) );
 	
 	cstar.makePRI( './def.json' )
 	.then( (pro) => {
@@ -90,7 +90,7 @@ test( 'make qmake include', t => {
 
 test( 'make CMake include', t => { 
 
-	process.chdir( path.join( __dirname, 'template/cstar-template-cmake/' ) );
+	process.chdir( path.join( __dirname, 'cstar-template-cmake/' ) );
 
 	cstar.makeCMake( './def.json' )
 	.then( (cmake) => {
