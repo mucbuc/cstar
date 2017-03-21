@@ -10,4 +10,6 @@ definition files
 [Examples](doc/examples.md)  
 [Developer Guide](doc/dev.md)
 
-test
+[cmake Example](test/cstar-template-cmake/README.md)
+[gyp Example](test/cstar-template-gyp/README.md)
+[qmake Example](test/cstar-template-qmake/README.md)
