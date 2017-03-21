@@ -6,10 +6,10 @@ cstar generates project include files for common build systems ([gyp](https://gy
 definition files
 
 ## examples  
-[general](doc/examples.md)  
-[cmake](https://github.com/mucbuc/cstar-template-cmake/blob/master/README.md)  
-[gyp](https://github.com/mucbuc/cstar-template-gyp/blob/master/README.md)   
-[qmake](https://github.com/mucbuc/cstar-template-qmake/blob/master/README.md)  
+* [general](doc/examples.md)  
+* [cmake](https://github.com/mucbuc/cstar-template-cmake/blob/master/README.md)  
+* [gyp](https://github.com/mucbuc/cstar-template-gyp/blob/master/README.md)   
+* [qmake](https://github.com/mucbuc/cstar-template-qmake/blob/master/README.md)  
 
 [Project Definition Guide](doc/guide.md)   
 
