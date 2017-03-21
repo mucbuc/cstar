@@ -4,8 +4,8 @@
 
 const program = require( 'commander' )
   , assert = require( 'assert' )
-  , list = require( './node_modules/filebase/list' )
-  , compose = require( './node_modules/filebase/compose' )
+  , list = require( './node_modules/mucbuc-filebase/list' )
+  , compose = require( './node_modules/mucbuc-filebase/compose' )
   , cstar = require( './api' );
 
 assert( typeof program !== 'undefined' );
@@ -35,7 +35,6 @@ else if (program.qmake) {
 	cstar.makePRI(defPath).then(print);
 }
 else {
-	console.log( program.export );
 	compose(defPath, program.export).then(print);
 }
 
