@@ -66,7 +66,7 @@ test.skip( 'make PRI include', t => {
 
 	e.expect( '' );
 
-	cstar.makePRI( './def_pri.json' )
+	cstar.makePRI( './def.json' )
 	.then( (pro) => {
 		fs.writeFile( './test.pro', pro, (err) => {
 			if (err) throw err;
