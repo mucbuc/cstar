@@ -60,7 +60,8 @@ test( 'make gyp include', t => {
 	});
 });
 
-test( 'make PRI include', t => { 
+// need to get qmake on build server
+test.skip( 'make PRI include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
