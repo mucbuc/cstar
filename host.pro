@@ -1,2 +1,2 @@
-include(test.pro)
+include(test.pri)
 include(other.pri)
