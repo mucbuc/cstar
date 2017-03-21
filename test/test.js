@@ -6,7 +6,8 @@ const cstar = require( '../api' )
   , Expector = require( 'expector' ).SeqExpector
   , test = require( 'tape' )
   , fs = require( 'fs' )
-  , cp = require( 'child_process' );
+  , cp = require( 'child_process' )
+  , path = require( 'path' );
 
 process.chdir( __dirname );
 
@@ -43,9 +44,11 @@ test( 'compose cmake', t => {
 	});
 });
 
+
+// these test require executables 
 test( 'make gyp include', t => { 
 
-	process.chdir( './template/cstar-template-gyp/' );
+	process.chdir( path.join( __dirname, 'template/cstar-template-gyp/' ) );
 
 	cstar.makeGYP( './def.json' )
 	.then( (gyp) => {
@@ -61,16 +64,15 @@ test( 'make gyp include', t => {
 	.catch( t.fail.bind( t ) );
 });
 
-// need to get qmake on build server
 test( 'make PRI include', t => { 
 	
-	process.chdir( './template/cstar-template-pri/' );
+	process.chdir( path.join( __dirname, 'template/cstar-template-pri/' ) );
 	
 	cstar.makePRI( './def.json' )
 	.then( (pro) => {
 		fs.writeFile( './test.pri', pro, (err) => {
 			if (err) throw err;
-			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode ./host.pro', (err, stdout, stderr) => {
+			cp.exec( 'qmake -spec macx-xcode ./host.pro', (err, stdout, stderr) => {
 				if (err) throw err;
 				t.equal( stderr.length, 0 );
 				t.end();
@@ -82,7 +84,7 @@ test( 'make PRI include', t => {
 
 test( 'make CMake include', t => { 
 
-	process.chdir( './template/cstar-template-cmake/' );
+	process.chdir( path.join( __dirname, 'template/cstar-template-cmake/' ) );
 
 	cstar.makeCMake( './def.json' )
 	.then( (cmake) => {
@@ -90,9 +92,6 @@ test( 'make CMake include', t => {
 			if (err) throw err;
 			cp.exec( 'cmake .', (err, stdout, stderr) => {
 				if (err) throw err;
-
-				console.log( '******', stderr );
-
 				t.equal( stderr.length, 0 );
 				cp.exec( 'make', (err, stdout, stderr) => {
 					if (err) throw err;
