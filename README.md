@@ -1,6 +1,6 @@
 # cstar-template-qmake
 
-** build **
+**build**
 ```
 cstar def.json -q > test.pri
 qmake host.pro
