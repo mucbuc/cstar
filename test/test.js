@@ -78,10 +78,13 @@ test( 'make qmake include', t => {
 	.then( (pro) => {
 		fs.writeFile( './test.pri', pro, (err) => {
 			if (err) throw err;
-			cp.exec( 'qmake -spec macx-xcode ./host.pro', (err, stdout, stderr) => {
+			cp.exec( 'qmake ./host.pro', (err, stdout, stderr) => {
 				if (err) throw err;
 				t.equal( stderr.length, 0 );
-				t.end();
+				cp.exec( 'make', (err, stdout, stderr) => {
+					if (err) throw err;
+					t.end();
+				});
 			});
 		});
 	})
