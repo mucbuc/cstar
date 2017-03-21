@@ -43,25 +43,26 @@ test( 'compose cmake', t => {
 	});
 });
 
-test( 'make gyp include', t => { 
-	let e = new Expector( t ); 
+test.only( 'make gyp include', t => { 
 
-	e.expect( '' );
+	process.chdir( './template/cstar-template-gyp/' );
 
 	cstar.makeGYP( './def.json' )
 	.then( (gyp) => {
 		fs.writeFile( './test.gypi', gyp, (err) => {
 			if (err) throw err;
-			cp.exec( 'gyp --depth=0 host.gyp', (err, stdout, stderr) => {
+			cp.exec( 'gyp --depth=. --build=Test ./host.gyp', (err, stdout, stderr) => {
 				if (err) throw err;
-				e.emit(stdout).check();
+				t.notEqual( stdout.indexOf( '** BUILD SUCCEEDED **' ), -1 );
+				t.end();
 			});
 		});
-	});
+	})
+	.catch( t.fail.bind( t ) );
 });
 
 // need to get qmake on build server
-test.only( 'make PRI include', t => { 
+test.skip( 'make PRI include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
@@ -84,11 +85,11 @@ test.skip( 'make CMake include', t => {
 
 	e.expect( "" );
 
-	cstar.makeCMake( './def_cmake.json' )
+	cstar.makeCMake( './template/cstar-template-cmake/def.json' )
 	.then( (cmake) => {
-		fs.writeFile( './test.txt', cmake, (err) => {
+		fs.writeFile( './template/cstar-template-cmake/test.txt', cmake, (err) => {
 			if (err) throw err;
-			cp.exec( 'cmake . -G "Xcode"', (err, stdout, stderr) => {
+			cp.exec( 'cmake . -G "Xcode"', {cwd: './template/cstar-template-cmake' }, (err, stdout, stderr) => {
 				if (err) throw err;
 				e.emit( "" ).check();
 			});
