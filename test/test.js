@@ -44,7 +44,7 @@ test( 'compose cmake', t => {
 	});
 });
 
-test.only( 'make gyp include', t => { 
+test( 'make gyp include', t => { 
 
 	process.chdir( path.join( __dirname, 'template/cstar-template-gyp/' ) );
 
@@ -70,9 +70,9 @@ test.only( 'make gyp include', t => {
 	.catch( t.fail.bind( t ) );
 });
 
-test( 'make PRI include', t => { 
+test( 'make qmake include', t => { 
 	
-	process.chdir( path.join( __dirname, 'template/cstar-template-pri/' ) );
+	process.chdir( path.join( __dirname, 'template/cstar-template-qmake/' ) );
 	
 	cstar.makePRI( './def.json' )
 	.then( (pro) => {
