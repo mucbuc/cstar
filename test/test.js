@@ -61,16 +61,16 @@ test( 'make gyp include', t => {
 });
 
 // need to get qmake on build server
-test.skip( 'make PRI include', t => { 
+test.only( 'make PRI include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( '' );
 
-	cstar.makePRI( './def.json' )
+	cstar.makePRI( './template/cstar-template-pri/def.json' )
 	.then( (pro) => {
-		fs.writeFile( './test.pro', pro, (err) => {
+		fs.writeFile( './template/cstar-template-pri/test.pri', pro, (err) => {
 			if (err) throw err;
-			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode host.pro', (err, stdout, stderr) => {
+			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode ./template/cstar-template-pri/host.pro', (err, stdout, stderr) => {
 				if (err) throw err;
 				e.emit( "" ).check();
 			});
