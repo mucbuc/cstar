@@ -11,5 +11,5 @@ definition files
 [Developer Guide](doc/dev.md)
 
 [cmake Example](https://github.com/mucbuc/cstar-template-cmake/blob/master/README.md)
-[gyp Example](https://github.com/mucbuc/cstar-template-gyp/README.md)
-[qmake Example](https://github.com/mucbuc/cstar-template-qmake/README.md)
+[gyp Example](https://github.com/mucbuc/cstar-template-gyp/blob/master/README.md)
+[qmake Example](https://github.com/mucbuc/cstar-template-qmake/blob/master/README.md)
