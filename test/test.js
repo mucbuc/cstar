@@ -44,7 +44,7 @@ test( 'compose cmake', t => {
 	});
 });
 
-test( 'make gyp include', t => { 
+test.only( 'make gyp include', t => { 
 
 	process.chdir( path.join( __dirname, 'template/cstar-template-gyp/' ) );
 
