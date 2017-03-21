@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/mucbuc/cstar#readme",
   "dependencies": {
-    "filebase": "*"
+    "mucbuc-filebase": "*"
   },
   "devDependencies": {
     "tape" : "*",
