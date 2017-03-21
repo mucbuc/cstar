@@ -78,7 +78,8 @@ test.skip( 'make PRI include', t => {
 	});
 });
 
-test( 'make CMake include', t => { 
+// install cmake on build server
+test.skip( 'make CMake include', t => { 
 	let e = new Expector( t ); 
 
 	e.expect( "" );
