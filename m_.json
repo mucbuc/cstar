@@ -1,7 +1,7 @@
 {
 	"test/template": [
 		"https://github.com/mucbuc/cstar-template-gyp.git",
-		"https://github.com/mucbuc/cstar-template-pri.git",
+		"https://github.com/mucbuc/cstar-template-qmake.git",
 		"https://github.com/mucbuc/cstar-template-cmake.git"
 	]
 }
