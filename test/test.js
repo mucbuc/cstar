@@ -43,7 +43,7 @@ test( 'compose cmake', t => {
 	});
 });
 
-test.only( 'make gyp include', t => { 
+test( 'make gyp include', t => { 
 
 	process.chdir( './template/cstar-template-gyp/' );
 
@@ -62,21 +62,22 @@ test.only( 'make gyp include', t => {
 });
 
 // need to get qmake on build server
-test.skip( 'make PRI include', t => { 
-	let e = new Expector( t ); 
-
-	e.expect( '' );
-
-	cstar.makePRI( './template/cstar-template-pri/def.json' )
+test.only( 'make PRI include', t => { 
+	
+	process.chdir( './template/cstar-template-pri/' );
+	
+	cstar.makePRI( './def.json' )
 	.then( (pro) => {
-		fs.writeFile( './template/cstar-template-pri/test.pri', pro, (err) => {
+		fs.writeFile( './test.pri', pro, (err) => {
 			if (err) throw err;
-			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode ./template/cstar-template-pri/host.pro', (err, stdout, stderr) => {
+			cp.exec( '~/Qt/5.5/clang_64/bin/qmake -spec macx-xcode ./host.pro', (err, stdout, stderr) => {
 				if (err) throw err;
-				e.emit( "" ).check();
+				t.equal( stderr.length, 0 );
+				t.end();
 			});
 		});
-	});
+	})
+	.catch( t.fail.bind( t ) );
 });
 
 // install cmake on build server
