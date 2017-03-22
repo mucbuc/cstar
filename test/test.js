@@ -19,7 +19,7 @@ test( 'asserter', function(t) {
 
   fs.unlink( resultPath, function(err) {
     tryOpen();
-    crimp([ './test.json' ], controller, tryOpen );
+    crimp([ './test.json', '-g' ], controller, tryOpen );
   } );
   
   function crimp(args, controller, cb) {
