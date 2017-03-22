@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var test = require( 'tape' )
   , fs = require( 'fs' )
   , cp = require( 'child_process' )
+  , path = require( 'path' )
   , Expector = require( 'expector' ).SeqExpector;
 
 test( 'asserter', function(t) {
   var controller = new Expector(t)
-   ,  resultPath = './tmp/result.json';
+   ,  resultPath = path.join( __dirname, 'tmp/result.json' ); 
 
   controller
   .expect( 'not exits' )
@@ -16,14 +19,15 @@ test( 'asserter', function(t) {
 
   fs.unlink( resultPath, function(err) {
     tryOpen();
-    crimp([ '-p', 'check_assert.json' ], controller, tryOpen );
+    crimp([ './test.json' ], controller, tryOpen );
   } );
   
   function crimp(args, controller, cb) {
+
     var child = cp
     .spawn( 'crimp', 
             args, 
-            { stdio: 'pipe' } )
+            { stdio: 'pipe', cwd: __dirname } )
     .on( 'exit', function(code) {
       
       if (typeof cb !== 'undefined') {
@@ -31,9 +35,9 @@ test( 'asserter', function(t) {
       }
       controller.emit( code );
       controller.check(); 
-    });
-    child.stdout.on( 'data', function(data) {
-      controller.emit( data ); 
+    })
+    .on( 'error', (error) => {
+      console.log( 'error:', error ); 
     });
 
     return child;

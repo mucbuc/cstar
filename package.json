@@ -1,4 +1,7 @@
 {
+	"scripts": {
+		"test": "tape test/test.js"
+	  },
 	"dependencies": {
 		"expector": "*",
 		"tape": "*"
