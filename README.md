@@ -12,6 +12,12 @@ Or *provide integration with popular build systems* via cstar
 cstar generates project include files for common build systems ([gyp](https://gyp.gsrc.io/index.md), [qmake](http://doc.qt.io/qt-4.8/qmake-manual.html), [cmake](https://cmake.org/)) from JSON project
 definition files
 
+## Usage 
+1) library consumer
+2) library developer
+3) cstar contributer
+
+
 ## examples  
 * [general](doc/examples.md)  
 * [cmake](https://github.com/mucbuc/cstar-template-cmake/blob/master/README.md)  
@@ -21,5 +27,4 @@ definition files
 [Project Definition Guide](doc/guide.md)   
 
 [Developer Guide](doc/dev.md)
-
 
