@@ -1,7 +1,7 @@
 {
   "name": "cstar",
   "version": "0.0.0",
-  "description": "",
+  "description": "c++ integration tool",
   "main": "cstar.js",
   "directories": {
     "test": "test"

@@ -28,7 +28,7 @@ lib/mod/inc.json:
 ```
 {
 	"sources": [
-		"src/fkjdsa.h"
+		"src/header.h"
 	]
 }
 ```
@@ -37,13 +37,13 @@ following commands will produce:
 
 `cstar.js test.json` =>
 ```
-{ sources: [ 'lib/mod/src/fkjdsa.h', 'src/main.cpp' ],
+{ sources: [ 'lib/mod/src/header.h', 'src/main.cpp' ],
   config: [ 'directX.gypi', 'openGL.gypi' ] }
 ```
 
 `/cstar.js -e win test.json` => 
 ```
-{ sources: [ 'lib/mod/src/fkjdsa.h', 'src/main.cpp' ],
+{ sources: [ 'lib/mod/src/header.h', 'src/main.cpp' ],
   config: [ 'directX.gypi' ] }
 ```
 
