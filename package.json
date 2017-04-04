@@ -1,6 +1,6 @@
 {
   "name": "cstar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "c++ integration tool",
   "main": "cstar.js",
   "directories": {
@@ -9,12 +9,13 @@
   "scripts": {
     "test": "tape test/test.js"
   },
+  "bin" : "./cstar.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mucbuc/cstar.git"
   },
   "author": "mark busenitz",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mucbuc/cstar/issues"
   },
