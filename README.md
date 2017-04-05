@@ -1,4 +1,4 @@
-# cstar-template-qmake
+# cstar-example-qmake
 
 **build**
 ```
