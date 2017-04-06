@@ -23,21 +23,35 @@ program.parse(process.argv);
 const defPath = program.args[0];
 
 if (program.branches) {
-	list(defPath).then(print);
+	list(defPath)
+	.then(print)
+	.catch(printError);
 }
 else if (program.gyp) {
-	cstar.makeGYP(defPath).then(print);
+	cstar.makeGYP(defPath)
+	.then(print)
+	.catch(printError);
 }
 else if (program.cmake) {
-	cstar.makeCMake(defPath).then(print);
+	cstar.makeCMake(defPath)
+	.then(print)
+	.catch(printError);
 }
 else if (program.qmake) {
-	cstar.makePRI(defPath).then(print);
+	cstar.makePRI(defPath)
+	.then(print)
+	.catch(printError);
 }
 else {
-	compose(defPath, program.export).then(print);
+	compose(defPath, program.export)
+	.then(print)
+	.catch(printError);
 }
 
 function print(result) {
 	console.log( result );
+}
+
+function printError(err) {
+	console.error(err);
 }
