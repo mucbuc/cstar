@@ -26,9 +26,10 @@ Or *provide integration with popular build systems* via cstar
 
 ## Examples  
 * [general](doc/examples.md)  
-* [cmake](https://github.com/mucbuc/cstar-template-cmake/blob/master/README.md)  
-* [gyp](https://github.com/mucbuc/cstar-template-gyp/blob/master/README.md)   
-* [qmake](https://github.com/mucbuc/cstar-template-qmake/blob/master/README.md)  
+* [cmake](https://github.com/mucbuc/cstar-example-cmake/blob/master/README.md)  
+* [gyp](https://github.com/mucbuc/cstar-example-gyp/blob/master/README.md)   
+* [qmake](https://github.com/mucbuc/cstar-example-qmake/blob/master/README.md)  
+* [opengl](https://github.com/mucbuc/cstar-example-opengl/blob/master/README.md)
 
 ## More Info
 [Project Definition Guide](doc/guide.md)   
