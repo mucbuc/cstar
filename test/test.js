@@ -33,6 +33,20 @@ test( 'compose pri', t => {
 	});
 });
 
+test( 'compose pri with muliple sources', t => {
+	let e = new Expector( t ); 
+
+	e.expect( 'SOURCES += src/main.cpp\\\nsrc/header.h\ninclude(other.pri)\n' );
+
+	cstar.makePRI( './def_pri2.json' )
+	.then( pri => {
+			
+		console.log( 'pri:', pri );
+
+		e.emit( pri ).check();
+	});
+});
+
 test( 'compose cmake', t => {
 	let e = new Expector( t );
 
