@@ -28,17 +28,20 @@ if (program.branches) {
 	.catch(printError);
 }
 else if (program.gyp) {
-	cstar.makeGYP(defPath)
+	cstar
+	.makeGYP(defPath, program.gyp)
 	.then(print)
 	.catch(printError);
 }
 else if (program.cmake) {
-	cstar.makeCMake(defPath)
+	cstar
+	.makeCMake(defPath, program.cmake)
 	.then(print)
 	.catch(printError);
 }
 else if (program.qmake) {
-	cstar.makePRI(defPath)
+	cstar
+	.makePRI(defPath, program.qmake)
 	.then(print)
 	.catch(printError);
 }
