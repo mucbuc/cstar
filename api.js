@@ -30,11 +30,7 @@ function makePRI( defPath, target ) {
   return new Promise( (resolve, reject) => {
     compose( defPath, target )
     .then( result => {
-      let pri = 'SOURCES +=';
-      for (let file in result.sources) {
-        pri += ' ' + result.sources[file] + '\n';
-      }
-
+      let pri = 'SOURCES += ' + result.sources.join( '\\\n' ) + '\n';
       if (result.hasOwnProperty('config')) {
         for (let conf in result.config) {
           pri += 'include(' + result.config[conf] + ')\n';
