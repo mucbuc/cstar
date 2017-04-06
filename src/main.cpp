@@ -2,7 +2,10 @@
 
 #include <lib/glfw/include/GLFW/glfw3.h>
 
+#include <lib/asserter/src/test.h>
+
 int main(int argc, const char * argv[]) 
 {
-	std::cout << GL_VERSION << std::endl;
+	ASSERT(	GL_VERSION );
+	std::cout << "ok" << std::endl; 
 }
