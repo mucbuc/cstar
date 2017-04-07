@@ -1,6 +1,8 @@
 {
 	"dependencies": {
-		"runjs": "*",
-		"cstar": "*"
+		"runjs": "*"
+	},
+	"scripts" : {
+		"test": "node make_q.js && node make_g.js"
 	}
 }
