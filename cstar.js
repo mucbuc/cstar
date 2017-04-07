@@ -4,8 +4,9 @@
 
 const program = require( 'commander' )
   , assert = require( 'assert' )
-  , list = require( './node_modules/mucbuc-filebase/list' )
-  , compose = require( './node_modules/mucbuc-filebase/compose' )
+  , filebase = require( 'mucbuc-filebase' )
+  , list = filebase.list
+  , compose = filebase.compose
   , cstar = require( './api' );
 
 assert( typeof program !== 'undefined' );

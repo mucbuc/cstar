@@ -3,13 +3,9 @@
   "version": "0.0.3",
   "description": "c++ integration tool",
   "main": "cstar.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "tape test/test.js"
   },
-  "bin" : "./cstar.js",
   "preferGlobal": "true",
   "repository": {
     "type": "git",
@@ -22,11 +18,12 @@
   },
   "homepage": "https://github.com/mucbuc/cstar#readme",
   "dependencies": {
-    "mucbuc-filebase": "*"
+    "mucbuc-filebase": "*",
+    "commander": "*"
   },
   "devDependencies": {
     "tape" : "*",
-    "expector": "*",
-    "commander": "*"
-  }
+    "expector": "*"
+  },
+  "bin" : "./cstar.js"
 }
