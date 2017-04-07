@@ -1,1 +1,2 @@
 # cstar-example-openglhello
+hello
