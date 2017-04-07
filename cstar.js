@@ -22,7 +22,7 @@ program
 	.option( '-e, --export [branch]', 'cstar file' );
 
 program.parse(process.argv);
-/*
+
 const defPath = program.args[0];
 
 if (program.branches) {
@@ -60,4 +60,5 @@ function print(result) {
 
 function printError(err) {
 	console.error(err);
-}*/
+} 
+
