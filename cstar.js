@@ -10,9 +10,11 @@ const program = require( 'commander' )
   , cstar = require( './api' );
 
 assert( typeof program !== 'undefined' );
+assert( typeof compose !== 'undefined' );
+assert( typeof compose !== 'undefined' );
 
 program
-	.version( '0.0.0' )
+	.version( '0.0.2' )
 	.option( '-b, --branches', 'list branches' )
 	.option( '-g, --gyp [branch]', 'generate gyp file' )
 	.option( '-c, --cmake [branch]', 'generate cmake file' )
@@ -20,7 +22,7 @@ program
 	.option( '-e, --export [branch]', 'cstar file' );
 
 program.parse(process.argv);
-
+/*
 const defPath = program.args[0];
 
 if (program.branches) {
@@ -58,4 +60,4 @@ function print(result) {
 
 function printError(err) {
 	console.error(err);
-}
+}*/
