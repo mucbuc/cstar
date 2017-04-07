@@ -1,0 +1,4 @@
+{
+	"sources": [ "src/main.cpp", "src/header.h" ],
+	"config": [ "other.pri" ]
+}
