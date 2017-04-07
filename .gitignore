@@ -1,3 +1,2 @@
 .DS_Store
-build/
-test.xcodeproj
+node_modules/

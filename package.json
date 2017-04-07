@@ -3,6 +3,6 @@
 		"runjs": "*"
 	},
 	"scripts" : {
-		"test": "node make_q.js && node make_g.js"
+		"test": "node make_q.js && git clean -fd && node make_g.js"
 	}
 }
