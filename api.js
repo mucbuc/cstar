@@ -2,7 +2,7 @@
 'use strict';
 
 const assert = require( 'assert' )
-  , compose = require( './node_modules/mucbuc-filebase/compose' )
+  , compose = require( 'mucbuc-filebase' ).compose;
 
 assert( typeof compose !== 'undefined' );
 
