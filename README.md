@@ -36,3 +36,5 @@ Or *provide integration with popular build systems* via cstar
 
 [Developer Guide](doc/dev.md)
 
+test
+test

@@ -2,16 +2,20 @@
 
 'use strict';
 
-const program = require( 'commander' )
-  , assert = require( 'assert' )
+const assert = require( 'assert' )
   , filebase = require( 'mucbuc-filebase' )
   , list = filebase.list
   , compose = filebase.compose
   , cstar = require( './api' );
 
-assert( typeof program !== 'undefined' );
 assert( typeof compose !== 'undefined' );
-assert( typeof compose !== 'undefined' );
+
+if (module.parent) {
+	module.exports = cstar;
+	return; 
+}
+
+const program = require( 'commander' );
 
 program
 	.version( '0.0.2' )
