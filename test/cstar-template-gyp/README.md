@@ -1,4 +1,8 @@
-# cstar-template-gyp
+# cstar-example-gyp
 
-`../cstar/cstar.js def.json -g > test.gypi`
-`gyp --depth==. host.gyp`
+**build**
+```
+cstar def.json -g > test.gypi
+gyp --depth==. host.gyp
+make
+```
