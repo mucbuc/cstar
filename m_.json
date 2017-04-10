@@ -3,7 +3,7 @@
 		"https://github.com/mucbuc/glfw.git",
 		"https://github.com/mucbuc/asserter.git"
 	],
-	"gypis": [
+	".": [
 		"https://github.com/mucbuc/gypis.git"
 	]
 }
