@@ -1,2 +1,0 @@
-# gypis
-common gyp files
