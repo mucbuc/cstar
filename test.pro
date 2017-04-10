@@ -1,3 +1,3 @@
 CONFIG += c++11
 
-include(lib.pri)
+include(cstar-example-opengl.pri)
