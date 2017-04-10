@@ -2,7 +2,7 @@
 	"branches": {
 		"gyp": {
 			"config": [
-			  "opengl.gypi"
+			  "gypis/opengl.gypi"
 			]
 		}
 	}
