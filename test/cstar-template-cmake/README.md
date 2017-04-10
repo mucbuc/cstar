@@ -1,4 +1,8 @@
-# cstar-template-cmake
+# cstar-example-cmake
 
-`../cstar/cstar.js def.json -c > test.txt`
-`cmake . -G "Xcode"`
+**build**
+```
+cstar def.json -c > test.txt
+cmake .
+make
+```
