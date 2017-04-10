@@ -1,0 +1,9 @@
+{
+	"lib": [
+		"https://github.com/mucbuc/glfw.git",
+		"https://github.com/mucbuc/asserter.git"
+	],
+	".": [
+		"https://github.com/mucbuc/gypis.git"
+	]
+}
