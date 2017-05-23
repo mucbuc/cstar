@@ -15,47 +15,50 @@ if (module.parent) {
 	return; 
 }
 
-const program = require( 'commander' );
+const argv = require( 'yargs' ).argv;
+if (argv._.indexOf('list') != -1)
+{
+	const defPath = argv._[argv._.length - 1];
 
-program
-	.version( '0.0.2' )
-	.option( '-b, --branches', 'list branches' )
-	.option( '-g, --gyp [branch]', 'generate gyp file' )
-	.option( '-c, --cmake [branch]', 'generate cmake file' )
-	.option( '-q, --qmake [branch]', 'generate qmake file')
-	.option( '-e, --export [branch]', 'cstar file' );
-
-program.parse(process.argv);
-
-const defPath = program.args[0];
-
-if (program.branches) {
 	list(defPath)
 	.then(print)
 	.catch(printError);
 }
-else if (program.gyp) {
-	cstar
-	.makeGYP(defPath, program.gyp)
+else if (argv._.indexOf( 'export' ) != -1)
+{
+	const defPath = argv._[argv._.length - 1]
+	  , branch = argv._[1];
+	
+	compose(defPath, branch)
 	.then(print)
-	.catch(printError);
+	.catch(printError);	
 }
-else if (program.cmake) {
-	cstar
-	.makeCMake(defPath, program.cmake)
-	.then(print)
-	.catch(printError);
-}
-else if (program.qmake) {
-	cstar
-	.makePRI(defPath, program.qmake)
-	.then(print)
-	.catch(printError);
-}
-else {
-	compose(defPath, program.export)
-	.then(print)
-	.catch(printError);
+else if (argv._.indexOf( 'generate' ) != -1)
+{
+	const defPath = argv._[argv._.length - 1]
+	  , branch = argv._[1];
+
+	if (argv._.indexOf('gyp') != -1)
+	{
+		cstar
+		.makeGYP(defPath, branch)
+		.then(print)
+		.catch(printError);
+	}
+	else if (argv._.indexOf('cmake') != -1)
+	{
+		cstar
+		.makeCMake(defPath, branch)
+		.then(print)
+		.catch(printError);
+	}
+	else if (argv._.indexOf('qmake') != -1)
+	{
+		cstar
+		.makePRI(defPath, branch)
+		.then(print)
+		.catch(printError);
+	}
 }
 
 function print(result) {
