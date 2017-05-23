@@ -1,0 +1,9 @@
+{
+	"branches": {
+		"gyp": {
+			"config": [
+			  "gypis/opengl.gypi"
+			]
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"runjs": "*"
+	},
+	"scripts" : {
+		"test": "node gyp_build.js && git clean -fd && node qmake_build.js"
+	}
+}

@@ -38,3 +38,4 @@ Or *provide integration with popular build systems* via cstar
 
 test
 test
+test
