@@ -64,5 +64,4 @@ function print(result) {
 
 function printError(err) {
 	console.error(err);
-} 
-
+}

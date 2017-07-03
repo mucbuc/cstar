@@ -1,0 +1,9 @@
+{
+	"import": [
+		"lib/asserter/def.json",
+		"opengl.json"
+	],
+	"sources": [
+		"src/main.cpp"
+	]
+}
