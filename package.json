@@ -19,7 +19,7 @@
   "homepage": "https://github.com/mucbuc/cstar#readme",
   "dependencies": {
     "mucbuc-filebase": "*",
-    "commander": "*"
+    "yargs": "*"
   },
   "devDependencies": {
     "tape" : "*",
